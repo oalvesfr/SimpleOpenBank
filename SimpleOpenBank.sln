@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.3.32929.385
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{ABB0A6E0-AD0C-4A57-9438-42370A46E180}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{E4B39866-57A2-4D4A-82B3-3216E07AB15C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "API", "API", "{F1272E0B-E062-450D-A78B-EF1B7A60DE99}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Core", "Core", "{7021B65E-C26B-4668-B38D-F029D3A911EB}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Infrastruture", "Infrastruture", "{E8037F70-C33C-4976-95AF-EA58F0F20E57}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "UI", "UI", "{B89AE474-1E98-4157-A3A5-A181D7A0DFF9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOpenBank.Application", "SimpleOpenBank.Application\SimpleOpenBank.Application.csproj", "{F69929EC-7047-4895-9A7B-6FE408E75B1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleOpenBank.Domain", "SimpleOpenBank.Domain\SimpleOpenBank.Domain.csproj", "{BA67DA87-CE79-444E-B1FB-D792B8C4C2A8}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F69929EC-7047-4895-9A7B-6FE408E75B1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F69929EC-7047-4895-9A7B-6FE408E75B1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F69929EC-7047-4895-9A7B-6FE408E75B1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F69929EC-7047-4895-9A7B-6FE408E75B1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA67DA87-CE79-444E-B1FB-D792B8C4C2A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA67DA87-CE79-444E-B1FB-D792B8C4C2A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA67DA87-CE79-444E-B1FB-D792B8C4C2A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA67DA87-CE79-444E-B1FB-D792B8C4C2A8}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{F1272E0B-E062-450D-A78B-EF1B7A60DE99} = {ABB0A6E0-AD0C-4A57-9438-42370A46E180}
+		{7021B65E-C26B-4668-B38D-F029D3A911EB} = {ABB0A6E0-AD0C-4A57-9438-42370A46E180}
+		{E8037F70-C33C-4976-95AF-EA58F0F20E57} = {ABB0A6E0-AD0C-4A57-9438-42370A46E180}
+		{B89AE474-1E98-4157-A3A5-A181D7A0DFF9} = {ABB0A6E0-AD0C-4A57-9438-42370A46E180}
+		{F69929EC-7047-4895-9A7B-6FE408E75B1D} = {7021B65E-C26B-4668-B38D-F029D3A911EB}
+		{BA67DA87-CE79-444E-B1FB-D792B8C4C2A8} = {7021B65E-C26B-4668-B38D-F029D3A911EB}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1E79DD9B-B2FE-487E-BEFD-2A0B05C6FC44}
+	EndGlobalSection
+EndGlobal
