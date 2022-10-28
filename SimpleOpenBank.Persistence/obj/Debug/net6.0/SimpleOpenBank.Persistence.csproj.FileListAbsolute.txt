@@ -1,0 +1,17 @@
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\bin\Debug\net6.0\SimpleOpenBank.Persistence.deps.json
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\bin\Debug\net6.0\SimpleOpenBank.Persistence.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\bin\Debug\net6.0\SimpleOpenBank.Persistence.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\bin\Debug\net6.0\SimpleOpenBank.Application.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\bin\Debug\net6.0\SimpleOpenBank.Domain.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\bin\Debug\net6.0\SimpleOpenBank.Application.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\bin\Debug\net6.0\SimpleOpenBank.Domain.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.csproj.AssemblyReference.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.AssemblyInfoInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.AssemblyInfo.cs
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.csproj.CoreCompileInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.csproj.CopyComplete
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\refint\SimpleOpenBank.Persistence.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\SimpleOpenBank.Persistence.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Persistence\obj\Debug\net6.0\ref\SimpleOpenBank.Persistence.dll

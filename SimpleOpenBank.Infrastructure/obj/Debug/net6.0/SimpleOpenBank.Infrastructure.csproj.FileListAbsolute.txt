@@ -1,0 +1,12 @@
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\bin\Debug\net6.0\SimpleOpenBank.Infrastructure.deps.json
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\bin\Debug\net6.0\SimpleOpenBank.Infrastructure.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\bin\Debug\net6.0\SimpleOpenBank.Infrastructure.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\SimpleOpenBank.Infrastructure.csproj.AssemblyReference.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\SimpleOpenBank.Infrastructure.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\SimpleOpenBank.Infrastructure.AssemblyInfoInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\SimpleOpenBank.Infrastructure.AssemblyInfo.cs
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\SimpleOpenBank.Infrastructure.csproj.CoreCompileInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\SimpleOpenBank.Infrastructure.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\refint\SimpleOpenBank.Infrastructure.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\SimpleOpenBank.Infrastructure.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Infrastructure\obj\Debug\net6.0\ref\SimpleOpenBank.Infrastructure.dll

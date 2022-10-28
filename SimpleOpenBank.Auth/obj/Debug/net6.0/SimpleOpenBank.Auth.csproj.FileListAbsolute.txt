@@ -1,0 +1,17 @@
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\bin\Debug\net6.0\SimpleOpenBank.Auth.deps.json
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\bin\Debug\net6.0\SimpleOpenBank.Auth.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\bin\Debug\net6.0\SimpleOpenBank.Auth.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\bin\Debug\net6.0\SimpleOpenBank.Application.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\bin\Debug\net6.0\SimpleOpenBank.Domain.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\bin\Debug\net6.0\SimpleOpenBank.Application.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\bin\Debug\net6.0\SimpleOpenBank.Domain.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.csproj.AssemblyReference.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.AssemblyInfoInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.AssemblyInfo.cs
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.csproj.CoreCompileInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.csproj.CopyComplete
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\refint\SimpleOpenBank.Auth.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\SimpleOpenBank.Auth.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Auth\obj\Debug\net6.0\ref\SimpleOpenBank.Auth.dll

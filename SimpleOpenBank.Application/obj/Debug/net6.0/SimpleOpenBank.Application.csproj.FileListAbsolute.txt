@@ -1,0 +1,15 @@
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\bin\Debug\net6.0\SimpleOpenBank.Application.deps.json
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\bin\Debug\net6.0\SimpleOpenBank.Application.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\bin\Debug\net6.0\SimpleOpenBank.Application.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.csproj.AssemblyReference.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.AssemblyInfoInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.AssemblyInfo.cs
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.csproj.CoreCompileInputs.cache
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\refint\SimpleOpenBank.Application.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\ref\SimpleOpenBank.Application.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\bin\Debug\net6.0\SimpleOpenBank.Domain.dll
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\bin\Debug\net6.0\SimpleOpenBank.Domain.pdb
+C:\Users\oalvesfr\source\SimpleOpenBank\SimpleOpenBank.Application\obj\Debug\net6.0\SimpleOpenBank.Application.csproj.CopyComplete
