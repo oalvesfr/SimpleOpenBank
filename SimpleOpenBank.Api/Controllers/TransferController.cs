@@ -42,9 +42,9 @@ namespace SimpleOpenBank.Api.Controllers
                 switch(ex)
                 {
                     case AuthenticationException:
-                        return StatusCode(StatusCodes.Status401Unauthorized, ex);
+                        return StatusCode(StatusCodes.Status401Unauthorized, ex.Message);
                     default:
-                        return StatusCode(StatusCodes.Status400BadRequest, ex);
+                        return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
                 }
             }
         }
