@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimpleOpenBank.Application.Contracts.Persistence;
+using SimpleOpenBank.Application.Models;
 using SimpleOpenBank.Domain;
 using System;
 using System.Collections.Generic;
@@ -18,22 +19,22 @@ namespace SimpleOpenBank.Persistence.Repository
             _dbContext = dbContext;
         }
 
-        public async Task<AccountBD> AddAccount(AccountBD account)
+        public new Task<AccountBD> Add(AccountBD account)
         {
 
             _dbContext.Accounts.Add(account);
-            await _dbContext.SaveChangesAsync();
-            return account;
+            _dbContext.SaveChanges();
+            return Task.FromResult(account);
         }
 
-        public async Task<AccountBD> GetAccountById(int id)
+        public new async Task<AccountBD> Get(int id)
         {
             return await _dbContext.Accounts.FindAsync(id);
         }
 
-        public async Task<List<AccountBD>> GetAllAccount(int idUser)
+        public async Task<List<AccountBD>> GetAll(int userId)
         {
-            return await _dbContext.Accounts.Where(x => x.IdUser == idUser).ToListAsync();
+            return await _dbContext.Accounts.Where(x => x.UserId == userId).ToListAsync();
         }
     }
 }

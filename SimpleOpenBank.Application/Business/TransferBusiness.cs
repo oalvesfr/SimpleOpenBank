@@ -21,19 +21,19 @@ namespace SimpleOpenBank.Application.Business
         {
             _unitOfWork = unitOfWork;
         }
-        public async Task<string> CreateTransferBusiness(TransferRequest transferRequest, int idUser)
+        public async Task<string> CreateTransferBusiness(TransferRequest transferRequest, int userId)
         {
-            var from = await _unitOfWork.AccountsRepository.GetAccountById(transferRequest.From_Account_Id);
+            var from = await _unitOfWork.AccountsRepository.Get(transferRequest.From_Account_Id);
             if (from == null)
                 throw new ArgumentException("From account does not exist");
 
-            if (idUser != from.IdUser)
+            if (userId != from.UserId)
                 throw new AuthenticationException("User not account owner");
 
             if (from.Balance < transferRequest.Amount)
                 throw new ArgumentException("Account balance is not enough");
 
-            var to = await _unitOfWork.AccountsRepository.GetAccountById(transferRequest.To_Account_Id);
+            var to = await _unitOfWork.AccountsRepository.Get(transferRequest.To_Account_Id);
             if (to == null)
                 throw new ArgumentException("To account does not exist");
 

@@ -26,15 +26,15 @@ namespace SimpleOpenBank.Application.Business
             _authToken = authToken;
         }
 
-        public async Task<CreateUserResponse> CreatedUserBusiness(CreateUserRequest userRequest)
+        public async Task<CreateUserResponse> CreatedUser(CreateUserRequest userRequest)
         {
-            var userTrue = await _unitOfWork.UserRepository.UsernameExists(userRequest.Username);
+            var userTrue =  _unitOfWork.UserRepository.UsernameExists(userRequest.Username);
             if(userTrue)
                 throw new Exception($"Username '{userRequest.Username}' already exists.");
 
 
-            byte[] passwordHash, passwordSalt;
-            CreatePasswordHash(userRequest.Password, out passwordHash, out passwordSalt);
+
+            CreatePasswordHash(userRequest.Password, out var passwordHash, out var passwordSalt);
             var user = new UserBD()
             {
                 Full_Name = userRequest.Full_Name,
@@ -53,65 +53,65 @@ namespace SimpleOpenBank.Application.Business
 
             return createUserResponse;
         }
-        public async Task<LoginUserResponse> LoginBusiness(LoginUserRequest loginUser)
+        public Task<LoginUserResponse> LoginBusiness(LoginUserRequest loginUser)
         {
-            var user = await _unitOfWork.UserRepository.SearchUser(loginUser.Username);
-            if (user == null)
+            var user =  _unitOfWork.UserRepository.SearchUser(loginUser.Username);
+            if (user is null)
                 throw new UnauthorizedAccessException("Username or Password does not correct.");
 
 
             if (!VerifyPasswordHash(loginUser.Password, user.PasswordHash, user.PasswordSalt))
                 throw new UnauthorizedAccessException("Username or Password does not correct.");
 
-            DateTime expire = DateTime.Now.AddMinutes(1);
-            DateTime expireRefresh = DateTime.Now.AddMinutes(60);
+            var expire = DateTime.Now.AddMinutes(1);
+            var expireRefresh = DateTime.Now.AddMinutes(60);
 
             var loginUserResponse = new LoginUserResponse()
             {
                 User = _mapper.Map<CreateUserResponse>(user),
-                Access_Token = await _authToken.CreateToken(user.Id.ToString(), expire),
+                Access_Token =  _authToken.CreateToken(user.Id.ToString(), expire),
                 Access_Token_Expires_At = expire.ToString(),
-                Refresh_Token = await _authToken.CreateRefreshToken(expireRefresh),
+                Refresh_Token = _authToken.CreateRefreshToken(expireRefresh),
                 Refresh_Token_Expires_At = expireRefresh.ToString(),
             };
      
 
             var token = new TokenRefreshBD()
             {
-                IdUser = user.Id,
+                UserId = user.Id,
                 RefresToken = loginUserResponse.Refresh_Token,
                 RefreshTokenExpiresAt = expireRefresh.ToString(),
             };
-            await _unitOfWork.TokenRepository.SaveTokenRefresh(token);
-            return loginUserResponse;
+            _unitOfWork.TokenRepository.SaveTokenRefresh(token);
+            return Task.FromResult(loginUserResponse);
             
             
         }
 
-        public async Task<LoginUserResponse> RefreshTokenBusiness(string refresh_Token)
+        public Task<LoginUserResponse> RefreshToken(string refresh_Token)
         {
-            var token = await _unitOfWork.TokenRepository.GetTokenRefresh(refresh_Token);
-            if(token == null)
-                throw new Exception("Token is null");
+            var token = _unitOfWork.TokenRepository.GetTokenRefresh(refresh_Token);
+            if(token is null)
+                throw new ArgumentNullException(nameof(refresh_Token), "Token is null");
 
             var tokenDateExpires = Convert.ToDateTime(token.RefreshTokenExpiresAt);
             if (tokenDateExpires < DateTime.Now)
-                throw new ArgumentNullException("Token is expired");
+                throw new Exception("Token is expired");
 
 
-            var user = await _unitOfWork.UserRepository.Get(token.IdUser);
-            if(user == null)
+            var user = _unitOfWork.UserRepository.Get(token.UserId);
+            if(user is null)
                 throw new Exception("User to token does not exist");
 
-            DateTime expire = DateTime.Now.AddMinutes(1);
-            DateTime expireRefresh = DateTime.Now.AddMinutes(60);
+            var expire = DateTime.Now.AddMinutes(1);
+            var expireRefresh = DateTime.Now.AddMinutes(60);
 
             var loginUserResponse = new LoginUserResponse()
             {
                 User = _mapper.Map<CreateUserResponse>(user),
-                Access_Token = await _authToken.CreateToken(user.Id.ToString(), expire),
+                Access_Token =  _authToken.CreateToken(user.Id.ToString(), expire),
                 Access_Token_Expires_At = expire.ToString(),
-                Refresh_Token = await _authToken.CreateRefreshToken(expireRefresh),
+                Refresh_Token = _authToken.CreateRefreshToken(expireRefresh),
                 Refresh_Token_Expires_At = expireRefresh.ToString(),
             };
 
@@ -119,9 +119,9 @@ namespace SimpleOpenBank.Application.Business
             token.RefresToken = loginUserResponse.Refresh_Token;
             token.RefreshTokenExpiresAt = expireRefresh.ToString();
 
-            await _unitOfWork.TokenRepository.SaveTokenRefresh(token);
+            _unitOfWork.TokenRepository.SaveTokenRefresh(token);
 
-            return loginUserResponse;
+            return Task.FromResult(loginUserResponse);
 
 
         }
@@ -139,16 +139,12 @@ namespace SimpleOpenBank.Application.Business
 
         private bool VerifyPasswordHash(string password, byte[] passwordHash, byte[] passwordSalt)
         {
-            using (var hmac = new HMACSHA512(passwordSalt))
-            {
-                var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+            using var hmac = new HMACSHA512(passwordSalt);
 
-                for (int i = 0; i < computedHash.Length; i++)
-                {
-                    if (computedHash[i] != passwordHash[i]) return false;
-                }
-                return true;
-            }
+            var computedHash = hmac.ComputeHash(Encoding.UTF8.GetBytes(password));
+
+            return !computedHash.Where((t, i) => t != passwordHash[i]).Any();
+
         }
 
     }

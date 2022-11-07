@@ -33,7 +33,7 @@ namespace SimpleOpenBank.Api.Controllers
 
             try
             {
-                var createUserResponse = await _userBusiness.CreatedUserBusiness(userRequest);
+                var createUserResponse = _userBusiness.CreatedUser(userRequest);
                 return Created("User created", createUserResponse);
             }
             catch (Exception ex)
@@ -52,7 +52,7 @@ namespace SimpleOpenBank.Api.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PostLogin(LoginUserRequest loginUser)
         {
-            if (loginUser.Username == null || loginUser.Password == null)
+            if (string.IsNullOrEmpty(loginUser.Username) || string.IsNullOrEmpty(loginUser.Password))
                 return BadRequest("Username and Password required");
             try
             {
@@ -78,21 +78,20 @@ namespace SimpleOpenBank.Api.Controllers
         {
             try
             {
-                var userResponse = await _userBusiness.RefreshTokenBusiness(tokenRefresh);
+                var userResponse = _userBusiness.RefreshToken(tokenRefresh);
                 return StatusCode(StatusCodes.Status201Created, userResponse);
             }
             catch (Exception ex)
             {
-                switch(ex)
+                return ex switch
                 {
-                    case ArgumentNullException:
-                        return StatusCode(StatusCodes.Status404NotFound, ex.Message);
-                    default:
-                        return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
-                }
-                
+                    ArgumentNullException => StatusCode(StatusCodes.Status404NotFound, ex.Message),
+                    _ => StatusCode(StatusCodes.Status400BadRequest, ex.Message)
+                };
             }
 
         }
+
+        
     }
 }

@@ -16,13 +16,13 @@ namespace SimpleOpenBank.Auth.Service
             _configuration = configuration;
         }
 
-        public Task<string> CreateToken(string uid, DateTime expire)
+        public string CreateToken(string uid, DateTime expire)
         {
 
-            var claims = new List<Claim>();
-            claims.Add(new Claim("uid", uid));
+            var claims = new List<Claim>{ new Claim("uid", uid) };
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Secret"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
@@ -33,14 +33,14 @@ namespace SimpleOpenBank.Auth.Service
                 signingCredentials: credentials
                 );
 
-            return Task.FromResult(new JwtSecurityTokenHandler().WriteToken(token));
+            return new JwtSecurityTokenHandler().WriteToken(token);
 
         }
 
-        public Task<string> CreateRefreshToken(DateTime expire)
+        public string CreateRefreshToken(DateTime expire)
         {
 
-            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Key"]));
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Jwt:Secret"]));
             var credentials = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
 
             var token = new JwtSecurityToken(
@@ -50,7 +50,7 @@ namespace SimpleOpenBank.Auth.Service
                 signingCredentials: credentials
                 );
 
-            return Task.FromResult(new JwtSecurityTokenHandler().WriteToken(token));
+            return (new JwtSecurityTokenHandler().WriteToken(token));
         }
     }
 }

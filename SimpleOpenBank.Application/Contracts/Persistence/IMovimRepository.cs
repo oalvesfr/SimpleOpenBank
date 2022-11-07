@@ -9,6 +9,6 @@ namespace SimpleOpenBank.Application.Contracts.Persistence
 {
     public interface IMovimRepository : IGenericRepository<MovimBD>
     {
-        Task<List<MovimBD>> GetAllMovimsAccount(int idAcount);
+        Task<List<MovimBD>> GetAll(int idAcount);
     }
 }

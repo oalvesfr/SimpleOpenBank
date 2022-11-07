@@ -9,7 +9,7 @@ namespace SimpleOpenBank.Application.Contracts.Persistence
 {
     public interface ITokenRepository : IGenericRepository<TokenRefreshBD>
     {
-        Task<TokenRefreshBD> GetTokenRefresh(string refresh_Token);
+        TokenRefreshBD GetTokenRefresh(string refresh_Token);
         Task SaveTokenRefresh(TokenRefreshBD tokenRefresh);
     }
 }

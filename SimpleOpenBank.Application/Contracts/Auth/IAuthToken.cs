@@ -8,7 +8,7 @@ namespace SimpleOpenBank.Application.Contracts.Auth
 {
     public interface IAuthToken
     {
-        Task<string> CreateRefreshToken(DateTime expire);
-        Task<string> CreateToken(string uid, DateTime expire);
+        string CreateRefreshToken(DateTime expire);
+        string CreateToken(string uid, DateTime expire);
     }
 }

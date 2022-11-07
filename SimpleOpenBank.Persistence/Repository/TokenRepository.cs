@@ -17,7 +17,7 @@ namespace SimpleOpenBank.Persistence.Repository
         {
             _dbContext = dbContext;
         }
-        public async Task<TokenRefreshBD> GetTokenRefresh(string refresh_Token)
+        public TokenRefreshBD GetTokenRefresh(string refresh_Token)
         {
             return _dbContext.TokenRefreshs.FirstOrDefault(t => t.RefresToken == refresh_Token);
         }
@@ -25,8 +25,8 @@ namespace SimpleOpenBank.Persistence.Repository
         public async Task SaveTokenRefresh(TokenRefreshBD tokenRefresh)
         {
 
-            var token = _dbContext.TokenRefreshs.FirstOrDefault(x => x.IdUser == tokenRefresh.IdUser);
-            if (token != null)
+            var token = _dbContext.TokenRefreshs.FirstOrDefault(x => x.UserId == tokenRefresh.UserId);
+            if (token is not null)
             {
                 token.RefresToken = tokenRefresh.RefresToken;
                 token.RefreshTokenExpiresAt = tokenRefresh.RefreshTokenExpiresAt.ToString();

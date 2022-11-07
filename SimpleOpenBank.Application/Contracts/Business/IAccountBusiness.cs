@@ -11,8 +11,8 @@ namespace SimpleOpenBank.Application.Contracts.Business
 {
     public interface IAccountBusiness
     {
-        Task<AccountResponse> CreatedAccountBusiness(AccountRequest accountRequest, int idUser);
-        Task<AccountMovims?> GetAccountByIdBusiness(int idUser, int id);
-        Task<List<AccountResponse>> GetAllAccountsBusiness(int idUser);
+        Task<AccountResponse> Create(AccountRequest accountRequest, int userId);
+        Task<AccountMovims?> Get(int userId, int id);
+        Task<List<AccountResponse>> Get(int userId);
     }
 }

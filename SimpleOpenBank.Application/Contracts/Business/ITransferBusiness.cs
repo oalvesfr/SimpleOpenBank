@@ -9,6 +9,6 @@ namespace SimpleOpenBank.Application.Contracts.Business
 {
     public interface ITransferBusiness
     {
-        Task<string> CreateTransferBusiness(TransferRequest transferRequest, int idUser);
+        Task<string> CreateTransferBusiness(TransferRequest transferRequest, int userId);
     }
 }

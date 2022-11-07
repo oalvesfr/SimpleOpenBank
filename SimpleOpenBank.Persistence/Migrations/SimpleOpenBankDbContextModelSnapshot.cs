@@ -34,12 +34,14 @@ namespace SimpleOpenBank.Persistence.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("Created_At")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<string>("Currency")
+                        .IsRequired()
                         .HasColumnType("text");
 
-                    b.Property<int>("IdUser")
+                    b.Property<int>("UserId")
                         .HasColumnType("integer");
 
                     b.HasKey("Id");
@@ -59,6 +61,7 @@ namespace SimpleOpenBank.Persistence.Migrations
                         .HasColumnType("real");
 
                     b.Property<string>("Created_At")
+                        .IsRequired()
                         .HasColumnType("text");
 
                     b.Property<int>("IdAcount")
@@ -77,9 +80,6 @@ namespace SimpleOpenBank.Persistence.Migrations
 
                     NpgsqlPropertyBuilderExtensions.UseIdentityByDefaultColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("IdUser")
-                        .HasColumnType("integer");
-
                     b.Property<string>("RefresToken")
                         .IsRequired()
                         .HasColumnType("text");
@@ -87,6 +87,9 @@ namespace SimpleOpenBank.Persistence.Migrations
                     b.Property<string>("RefreshTokenExpiresAt")
                         .IsRequired()
                         .HasColumnType("text");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("integer");
 
                     b.HasKey("Id");
 

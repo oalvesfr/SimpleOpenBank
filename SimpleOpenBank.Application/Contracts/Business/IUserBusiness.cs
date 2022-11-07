@@ -10,8 +10,8 @@ namespace SimpleOpenBank.Application.Contracts.Business
 {
     public interface IUserBusiness
     {
-        Task<CreateUserResponse> CreatedUserBusiness(CreateUserRequest userRequest);
+        Task<CreateUserResponse> CreatedUser(CreateUserRequest userRequest);
         Task<LoginUserResponse> LoginBusiness(LoginUserRequest loginUser);
-        Task<LoginUserResponse> RefreshTokenBusiness(string refresh_Token);
+        Task<LoginUserResponse> RefreshToken(string refresh_Token);
     }
 }

@@ -28,24 +28,22 @@ namespace SimpleOpenBank.Api.Controllers
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post(TransferRequest transferRequest)
         {
-            var idUser = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value!);
-            if (idUser == 0)
+            var userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value!);
+            if (userId == 0)
                 return Unauthorized("Authentication required");
             try
             {
-                var result = await _transferBusiness.CreateTransferBusiness(transferRequest, idUser);
+                var result = await _transferBusiness.CreateTransferBusiness(transferRequest, userId);
                 return StatusCode(StatusCodes.Status200OK, result);
             }
             catch (Exception ex)
             {
-
-                switch(ex)
+                return ex switch
                 {
-                    case AuthenticationException:
-                        return StatusCode(StatusCodes.Status401Unauthorized, ex.Message);
-                    default:
-                        return StatusCode(StatusCodes.Status400BadRequest, ex.Message);
-                }
+                    AuthenticationException => StatusCode(StatusCodes.Status401Unauthorized, ex.Message),
+                    _ => StatusCode(StatusCodes.Status400BadRequest, ex.Message)
+                };
+
             }
         }
     }

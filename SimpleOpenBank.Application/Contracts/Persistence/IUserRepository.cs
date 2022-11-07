@@ -10,7 +10,7 @@ namespace SimpleOpenBank.Application.Contracts.Persistence
     public interface IUserRepository : IGenericRepository<UserBD>
     {
         Task<UserBD> AddUser(UserBD user);
-        Task<UserBD> SearchUser(string username);
-        Task<bool> UsernameExists(string username);
+        UserBD SearchUser(string username);
+        bool UsernameExists(string username);
     }
 }

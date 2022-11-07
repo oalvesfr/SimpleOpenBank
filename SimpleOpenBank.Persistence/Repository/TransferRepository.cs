@@ -19,21 +19,21 @@ namespace SimpleOpenBank.Persistence.Repository
             _dbContext = dbContext;
         }
 
-        public async Task<bool> TransferTransation(TransferRequest transfer)
+        public Task<bool> TransferTransation(TransferRequest transfer)
         {
             using(IDbContextTransaction transaction = _dbContext.Database.BeginTransaction())
             {
                 try
                 {
-                    var from = await _dbContext.Accounts.FindAsync(transfer.From_Account_Id);
+                    var from =  _dbContext.Accounts.Find(transfer.From_Account_Id);
                     from.Balance -= transfer.Amount;
                     _dbContext.Accounts.Update(from);
-                    await _dbContext.SaveChangesAsync();
+                    _dbContext.SaveChanges();
 
-                    var to = await _dbContext.Accounts.FindAsync(transfer.To_Account_Id);
+                    var to = _dbContext.Accounts.Find(transfer.To_Account_Id);
                     to.Balance += transfer.Amount;
                     _dbContext.Accounts.Update(to);
-                    await _dbContext.SaveChangesAsync();
+                    _dbContext.SaveChanges();
 
                     var movimFrom = new MovimBD()
                     {
@@ -41,8 +41,8 @@ namespace SimpleOpenBank.Persistence.Repository
                         IdAcount = transfer.From_Account_Id,
                         Created_At = DateTime.Now.ToString(),
                     };
-                    await _dbContext.AddAsync(movimFrom);
-                    await _dbContext.SaveChangesAsync();
+                    _dbContext.Add(movimFrom);
+                    _dbContext.SaveChanges();
 
                     var movimTo = new MovimBD()
                     {
@@ -50,18 +50,18 @@ namespace SimpleOpenBank.Persistence.Repository
                         IdAcount = transfer.To_Account_Id,
                         Created_At = DateTime.Now.ToString(),
                     };
-                    await _dbContext.Movims.AddAsync(movimTo);
-                    await _dbContext.SaveChangesAsync();
+                    _dbContext.Movims.Add(movimTo);
+                    _dbContext.SaveChanges();
 
 
                     transaction.Commit();
-                    return true;
+                    return Task.FromResult(true);
                 }
                 catch (Exception)
                 {
 
                     transaction.Rollback();
-                    return false;
+                    return Task.FromResult(false);
                 }
             }
         }

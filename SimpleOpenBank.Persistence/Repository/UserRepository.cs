@@ -16,9 +16,9 @@ namespace SimpleOpenBank.Persistence.Repository
         {
             _dbContext = dbContext;
         }
-        public Task<bool> UsernameExists(string username)
+        public bool UsernameExists(string username)
         {
-            return Task.FromResult(_dbContext.Users.Any(u => u.Username == username));
+            return _dbContext.Users.Any(u => u.Username == username);
         }
         public async Task<UserBD> AddUser(UserBD user)
         {
@@ -27,7 +27,7 @@ namespace SimpleOpenBank.Persistence.Repository
             return user;
         }
 
-        public async Task<UserBD> SearchUser(string username)
+        public UserBD SearchUser(string username)
         {
             return _dbContext.Users.FirstOrDefault(u => u.Username == username);
         }

@@ -9,7 +9,7 @@ namespace SimpleOpenBank.Domain
 {
     public class TokenRefreshBD : BaseDomainEntity
     {
-        public int IdUser { get; set; }
+        public int UserId { get; set; }
         public string RefresToken { get; set; }
         public string RefreshTokenExpiresAt { get; set; }
     }

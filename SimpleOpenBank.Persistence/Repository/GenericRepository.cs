@@ -1,5 +1,6 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using SimpleOpenBank.Application.Contracts.Persistence;
+using SimpleOpenBank.Domain;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -47,5 +48,6 @@ namespace SimpleOpenBank.Persistence.Repository
         {
             _dbContext.Entry(entity).State = EntityState.Modified;
         }
+
     }
 }
