@@ -13,8 +13,6 @@ namespace SimpleOpenBank.Auth
     {
         public static IServiceCollection ConfigureAuthServices(this IServiceCollection services, IConfiguration configuration)
         {
-
-
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
                     .AddJwtBearer(options =>
                     options.TokenValidationParameters = new TokenValidationParameters
@@ -27,7 +25,7 @@ namespace SimpleOpenBank.Auth
                         ValidAudience = configuration["Jwt:Audience"],
                         IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["Jwt:Secret"]))
                     });
-            services.AddScoped<IAuthToken, AuthToken>();
+            services.AddTransient<IAuthToken, AuthToken>();
 
             return services;
         }

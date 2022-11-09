@@ -22,5 +22,6 @@ namespace SimpleOpenBank.Persistence
         public DbSet<AccountBD> Accounts { get; set; }
         public DbSet<MovimBD> Movims { get; set; }
         public DbSet<TokenRefreshBD> TokenRefreshs { get; set; }
+        public DbSet<DocumentBD> Documents { get; set; }
     }
 }

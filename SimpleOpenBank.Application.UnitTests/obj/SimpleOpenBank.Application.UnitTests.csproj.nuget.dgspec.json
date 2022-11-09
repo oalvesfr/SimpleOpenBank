@@ -52,9 +52,13 @@
               "target": "Package",
               "version": "[4.18.2, )"
             },
-            "Shouldly": {
+            "NUnit": {
               "target": "Package",
-              "version": "[4.1.0, )"
+              "version": "[3.13.3, )"
+            },
+            "NUnit3TestAdapter": {
+              "target": "Package",
+              "version": "[4.3.0, )"
             },
             "coverlet.collector": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
@@ -64,13 +68,13 @@
             },
             "xunit": {
               "target": "Package",
-              "version": "[2.4.2, )"
+              "version": "[2.4.1, )"
             },
             "xunit.runner.visualstudio": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
               "target": "Package",
-              "version": "[2.4.5, )"
+              "version": "[2.4.3, )"
             }
           },
           "imports": [
@@ -186,10 +190,10 @@
       "version": "1.0.0",
       "restore": {
         "projectUniqueName": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
-        "projectName": "SimpleOpenBank.Application",
+        "projectName": "SimpleOpenBank.Domain",
         "projectPath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
         "packagesPath": "C:\\Users\\oalvesfr\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Application\\obj\\",
+        "outputPath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\oalvesfr\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -205,11 +209,7 @@
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
-            "projectReferences": {
-              "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj": {
-                "projectPath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj"
-              }
-            }
+            "projectReferences": {}
           }
         },
         "warningProperties": {

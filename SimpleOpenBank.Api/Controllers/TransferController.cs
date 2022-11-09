@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Authorization;
+﻿using Microsoft.AspNetCore.Authentication.JwtBearer;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using SimpleOpenBank.Application.Contracts.Business;
@@ -21,7 +22,7 @@ namespace SimpleOpenBank.Api.Controllers
 
         // POST api/<TransferController>
         [HttpPost]
-        //[Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
+        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
@@ -40,8 +41,9 @@ namespace SimpleOpenBank.Api.Controllers
             {
                 return ex switch
                 {
+                    ArgumentException => StatusCode(StatusCodes.Status400BadRequest, ex.Message),
                     AuthenticationException => StatusCode(StatusCodes.Status401Unauthorized, ex.Message),
-                    _ => StatusCode(StatusCodes.Status400BadRequest, ex.Message)
+                    _ => StatusCode(StatusCodes.Status500InternalServerError, ex.Message)
                 };
 
             }

@@ -9,8 +9,8 @@ namespace SimpleOpenBank.Application.Contracts.Persistence
 {
     public interface IAccountsRepository : IGenericRepository<AccountBD>
     {
-        //new Task<AccountBD> Add(AccountBD account);
-        //new Task<AccountBD> Get(int id);
+        new Task<AccountBD> Add(AccountBD account);
+        new Task<AccountBD> Get(int id);
         Task<List<AccountBD>> GetAll(int userId);
     }
 }

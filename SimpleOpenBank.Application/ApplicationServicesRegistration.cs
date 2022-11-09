@@ -17,10 +17,10 @@ namespace SimpleOpenBank.Application
             services.AddMediatR(Assembly.GetExecutingAssembly());
 
 
-            services.AddScoped<IAccountBusiness, AccountBusiness>();
-            services.AddScoped<ITransferBusiness, TransferBusiness>();
-            services.AddScoped<IUserBusiness, UserBusiness>();
-
+            services.AddTransient<IAccountBusiness, AccountBusiness>();
+            services.AddTransient<ITransferBusiness, TransferBusiness>();
+            services.AddTransient<IUserBusiness, UserBusiness>();
+            services.AddTransient<IDocumentBusiness, DocumentBusiness>();
 
             return services;
         }

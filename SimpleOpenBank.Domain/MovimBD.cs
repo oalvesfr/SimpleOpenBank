@@ -9,7 +9,7 @@ namespace SimpleOpenBank.Domain
 {
     public class MovimBD : BaseDomainEntity
     {
-        public int IdAcount { get; set; }
+        public int AccountId { get; set; }
         public float Amount { get; set; }
         public string Created_At { get; set; }
     }

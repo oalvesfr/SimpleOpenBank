@@ -19,14 +19,15 @@ namespace SimpleOpenBank.Persistence
                options.UseNpgsql(
                    configuration.GetConnectionString("SOBankConnectionString")));
 
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
-            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddTransient(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
 
-            services.AddScoped<IAccountsRepository, AccountsRepository>();
-            services.AddScoped<ITransferRepository, TransferRepository>();
-            services.AddScoped<IMovimRepository, MovimRepository>();
-            services.AddScoped<ITokenRepository, TokenRepository>();
-            services.AddScoped<IUserRepository, UserRepository>();
+            services.AddTransient<IAccountsRepository, AccountsRepository>();
+            services.AddTransient<ITransferRepository, TransferRepository>();
+            services.AddTransient<IMovimRepository, MovimRepository>();
+            services.AddTransient<ITokenRepository, TokenRepository>();
+            services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IDocumentRepository, DocumentRepository>();
 
             return services;
         }

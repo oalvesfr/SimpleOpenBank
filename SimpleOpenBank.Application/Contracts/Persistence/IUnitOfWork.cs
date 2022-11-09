@@ -13,7 +13,7 @@ namespace SimpleOpenBank.Application.Contracts.Persistence
         IMovimRepository MovimRepository { get; }
         IUserRepository UserRepository { get; }
         ITokenRepository TokenRepository { get; }
+        IDocumentRepository DocumentRepository { get; }
 
-        //Task Save();
     }
 }

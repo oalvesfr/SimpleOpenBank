@@ -38,7 +38,7 @@ namespace SimpleOpenBank.Persistence.Repository
                     var movimFrom = new MovimBD()
                     {
                         Amount = -transfer.Amount,
-                        IdAcount = transfer.From_Account_Id,
+                        AccountId = transfer.From_Account_Id,
                         Created_At = DateTime.Now.ToString(),
                     };
                     _dbContext.Add(movimFrom);
@@ -47,7 +47,7 @@ namespace SimpleOpenBank.Persistence.Repository
                     var movimTo = new MovimBD()
                     {
                         Amount = transfer.Amount,
-                        IdAcount = transfer.To_Account_Id,
+                        AccountId = transfer.To_Account_Id,
                         Created_At = DateTime.Now.ToString(),
                     };
                     _dbContext.Movims.Add(movimTo);

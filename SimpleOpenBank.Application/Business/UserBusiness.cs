@@ -63,8 +63,8 @@ namespace SimpleOpenBank.Application.Business
             if (!VerifyPasswordHash(loginUser.Password, user.PasswordHash, user.PasswordSalt))
                 throw new UnauthorizedAccessException("Username or Password does not correct.");
 
-            var expire = DateTime.Now.AddMinutes(1);
-            var expireRefresh = DateTime.Now.AddMinutes(60);
+            var expire = DateTime.Now.AddMinutes(60);
+            var expireRefresh = DateTime.Now.AddHours(48);
 
             var loginUserResponse = new LoginUserResponse()
             {
@@ -100,11 +100,10 @@ namespace SimpleOpenBank.Application.Business
 
 
             var user = _unitOfWork.UserRepository.Get(token.UserId);
-            if(user is null)
-                throw new Exception("User to token does not exist");
+            if(user is null) throw new Exception("User to token does not exist");
 
-            var expire = DateTime.Now.AddMinutes(1);
-            var expireRefresh = DateTime.Now.AddMinutes(60);
+            var expire = DateTime.Now.AddMinutes(60);
+            var expireRefresh = DateTime.Now.AddHours(48);
 
             var loginUserResponse = new LoginUserResponse()
             {

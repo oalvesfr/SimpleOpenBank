@@ -17,9 +17,9 @@ namespace SimpleOpenBank.Persistence.Repository
         {
             _dbContext = dbContext;
         }
-        public async Task<List<MovimBD>> GetAll(int idAcount)
+        public async Task<List<MovimBD>> GetAll(int accountId)
         {
-            return await _dbContext.Movims.Where(x => x.IdAcount == idAcount).ToListAsync();
+            return await _dbContext.Movims.Where(x => x.AccountId == accountId).ToListAsync();
         }
     }
 }
