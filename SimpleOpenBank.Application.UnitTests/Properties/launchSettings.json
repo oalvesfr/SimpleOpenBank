@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "SimpleOpenBank.Application.UnitTests": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:53714;http://localhost:53715"
+    }
+  }
+}

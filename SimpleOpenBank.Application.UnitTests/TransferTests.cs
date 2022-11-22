@@ -1,4 +1,5 @@
-﻿using Moq;
+﻿using Microsoft.AspNetCore.SignalR;
+using Moq;
 using NUnit.Framework;
 using NUnit.Framework.Constraints;
 using SimpleOpenBank.Application.Business;
@@ -142,10 +143,10 @@ namespace SimpleOpenBank.Application.UnitTests
             _unitOfWork.Setup(r => r.AccountsRepository.Get(2)).ReturnsAsync(account);
 
             _transferBusiness = new TransferBusiness(_unitOfWork.Object);
-
+            int userId3 = 3;
             //Assert
             var ex = Assert.ThrowsAsync<AuthenticationException>(() => 
-                        _transferBusiness.CreateTransferBusiness(_transferRequest, 3));
+                        _transferBusiness.CreateTransferBusiness(_transferRequest, userId3));
             Assert.That(ex.Message, Is.EqualTo("User not account owner"));
 
         }

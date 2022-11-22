@@ -23,5 +23,10 @@ namespace SimpleOpenBank.Persistence.Repository
             await _dbContext.SaveChangesAsync();
             return document;
         }
+
+        public Task<List<DocumentBD>> GetAll(int userId)
+        {
+            return Task.FromResult(_dbContext.Documents.Where(x => x.UserId == userId).ToList());
+        }
     }
 }

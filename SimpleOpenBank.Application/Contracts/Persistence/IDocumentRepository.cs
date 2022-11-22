@@ -10,5 +10,6 @@ namespace SimpleOpenBank.Application.Contracts.Persistence
     public interface IDocumentRepository : IGenericRepository<DocumentBD>
     {
         new Task<DocumentBD> Add(DocumentBD document);
+        Task<List<DocumentBD>> GetAll(int userId);
     }
 }

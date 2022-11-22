@@ -11,6 +11,7 @@ namespace SimpleOpenBank.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class TransferController : ControllerBase
     {
         private readonly ITransferBusiness _transferBusiness;
@@ -22,16 +23,14 @@ namespace SimpleOpenBank.Api.Controllers
 
         // POST api/<TransferController>
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [ProducesResponseType(typeof(string), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Post(TransferRequest transferRequest)
         {
-            var userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value!);
-            if (userId == 0)
-                return Unauthorized("Authentication required");
+            if (!int.TryParse(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value, out int userId))
+            { return Unauthorized("Authentication required"); }
             try
             {
                 var result = await _transferBusiness.CreateTransferBusiness(transferRequest, userId);

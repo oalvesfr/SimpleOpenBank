@@ -1,0 +1,12 @@
+{
+  "profiles": {
+    "SimpleOpenBank.Auth": {
+      "commandName": "Project",
+      "launchBrowser": true,
+      "environmentVariables": {
+        "ASPNETCORE_ENVIRONMENT": "Development"
+      },
+      "applicationUrl": "https://localhost:53711;http://localhost:53718"
+    }
+  }
+}

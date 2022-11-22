@@ -13,6 +13,7 @@ namespace SimpleOpenBank.Api.Controllers
 {
     [Route("[controller]")]
     [ApiController]
+    [Authorize]
     public class AccountController : ControllerBase
     {
         private readonly IAccountBusiness _accountBusiness;
@@ -23,14 +24,13 @@ namespace SimpleOpenBank.Api.Controllers
 
         // GET: <AccountController>
         [HttpGet]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
-        [ProducesResponseType(typeof(IEnumerable<AccountResponse>), StatusCodes.Status200OK)]
+        [ProducesResponseType(typeof(IEnumerable<List<AccountResponse>>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAllAccounts()
         {
-            var userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value!);
-            if (userId == 0) return Unauthorized("Authentication required");
+            if(!int.TryParse(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value, out int userId))
+            { return Unauthorized("Authentication required"); }
 
             try
             {
@@ -47,15 +47,14 @@ namespace SimpleOpenBank.Api.Controllers
 
         // GET <AccountController>/5
         [HttpGet("{id:int}")]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [ProducesResponseType(typeof(IEnumerable<AccountMovims>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(string), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> GetAccountById(int id)
         {
-            var userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value!);
-            if (userId == 0) return Unauthorized("Authentication required");
+            if (!int.TryParse(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value, out int userId))
+            { return Unauthorized("Authentication required"); }
 
             try
             {
@@ -75,15 +74,14 @@ namespace SimpleOpenBank.Api.Controllers
 
         // POST <AccountController>
         [HttpPost]
-        [Authorize(AuthenticationSchemes = JwtBearerDefaults.AuthenticationScheme)]
         [ProducesResponseType(typeof(IEnumerable<AccountResponse>), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(string), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(string), StatusCodes.Status401Unauthorized)]
         [ProducesResponseType(typeof(string), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> PostCreatedAccount(AccountRequest accountRequest)
         {
-            var userId = Convert.ToInt32(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value!);
-            if (userId == 0) return Unauthorized("Authentication required");
+            if (!int.TryParse(User.Claims.FirstOrDefault(c => c.Type == "uid")?.Value, out int userId))
+            { return Unauthorized("Authentication required"); }
             try
             {
                 var accountResponse = await _accountBusiness.Create(accountRequest, userId);

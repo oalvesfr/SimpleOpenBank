@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.IdentityModel.Tokens;
 using SimpleOpenBank.Application.Contracts.Business;
 using SimpleOpenBank.Application.Contracts.Persistence;
+using SimpleOpenBank.Application.Models.Responses;
 using SimpleOpenBank.Domain;
 using System;
 using System.Collections.Generic;
@@ -19,14 +21,14 @@ namespace SimpleOpenBank.Application.Business
     public class DocumentBusiness : IDocumentBusiness
     {
         private readonly IUnitOfWork _unitOfWork;
-        private string[] permittedExtensions = { ".txt", ".pdf" };
+        private string[] permittedExtensions = { ".txt", ".pdf", ".png" };
 
         public DocumentBusiness(IUnitOfWork unitOfWork)
         {
             _unitOfWork = unitOfWork;
         }
 
-        public async Task<string> UploadFile(IFormFile file, int userId, int accountId)
+        public async Task<string> DownloadFilel(IFormFile file, int userId, int accountId)
         {
             var ext = Path.GetExtension(file.FileName).ToLowerInvariant();
 
@@ -64,5 +66,41 @@ namespace SimpleOpenBank.Application.Business
             }
             return "The upload sucess";
         }
+
+        public async Task<byte[]> Get(int id, int userId)
+        {
+            var document = await _unitOfWork.DocumentRepository.Get(id);
+            if (document is null) throw new ArgumentException("Document not found");
+            if (document.UserId != userId) throw new AuthenticationException("You do not have permission to access this document");
+
+            return document.File;
+        }
+
+        public async Task<List<DocumentResponse>> Get(int userId)
+        {
+            var documents = await _unitOfWork.DocumentRepository.GetAll(userId);
+            if (documents is null) throw new ArgumentException("Document not found");
+
+
+
+            var documentsResponse = new List<DocumentResponse>();
+            foreach(var document in documents)
+                documentsResponse.Add(MapDocumentResponse(document));
+
+            return documentsResponse;
+        }
+
+        private static DocumentResponse MapDocumentResponse(DocumentBD document)
+        {
+
+            return new DocumentResponse()
+            {
+                Id = document.Id,
+                FileName = document.FileName,
+                Account_Id = document.AccountId,
+                FileType = document.FileType,
+            };
+        }
+
     }
 }

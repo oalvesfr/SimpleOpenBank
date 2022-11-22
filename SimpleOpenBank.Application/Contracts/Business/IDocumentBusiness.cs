@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SimpleOpenBank.Application.Models.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,6 +10,8 @@ namespace SimpleOpenBank.Application.Contracts.Business
 {
     public interface IDocumentBusiness
     {
-        Task<string> UploadFile(IFormFile file, int userId, int accountId);
+        Task<byte[]> Get(int id, int userId);
+        Task<List<DocumentResponse>> Get(int userId);
+        Task<string> DownloadFilel(IFormFile file, int userId, int accountId);
     }
 }
