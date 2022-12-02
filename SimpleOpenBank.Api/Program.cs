@@ -2,6 +2,7 @@ using SimpleOpenBank.Application;
 using SimpleOpenBank.Application.Business;
 using SimpleOpenBank.Application.Contracts.Business;
 using SimpleOpenBank.Auth;
+using SimpleOpenBank.Infratructure;
 using SimpleOpenBank.Persistence;
 
 
@@ -11,6 +12,7 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.ConfigureApplicationServices();
 builder.Services.ConfigureAuthServices(builder.Configuration);
 builder.Services.ConfigurePersistenceServices(builder.Configuration);
+builder.Services.ConfigureInfratrutructureServices();
 builder.Services.AddHttpContextAccessor();
 
 

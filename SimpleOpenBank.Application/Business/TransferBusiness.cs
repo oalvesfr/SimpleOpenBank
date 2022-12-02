@@ -1,15 +1,11 @@
 ﻿using SimpleOpenBank.Application.Contracts.Business;
+using SimpleOpenBank.Application.Contracts.Infratructure;
 using SimpleOpenBank.Application.Contracts.Persistence;
+using SimpleOpenBank.Application.Models;
 using SimpleOpenBank.Application.Models.Requests;
 using SimpleOpenBank.Domain;
-using System;
-using System.Collections.Generic;
-using System.Linq;
+using System.Net.Mail;
 using System.Security.Authentication;
-using System.Security.Cryptography.Xml;
-using System.Text;
-using System.Threading.Tasks;
-using System.Transactions;
 
 namespace SimpleOpenBank.Application.Business
 {
@@ -17,9 +13,11 @@ namespace SimpleOpenBank.Application.Business
     public class TransferBusiness : ITransferBusiness
     {
         private readonly IUnitOfWork _unitOfWork;
-        public TransferBusiness(IUnitOfWork unitOfWork)
+        private readonly IEmailTransferProducer _emailTransferProducer;
+        public TransferBusiness(IUnitOfWork unitOfWork, IEmailTransferProducer emailTransferProducer)
         {
             _unitOfWork = unitOfWork;
+            _emailTransferProducer = emailTransferProducer;
         }
         public async Task<string> CreateTransferBusiness(TransferRequest transferRequest, int userId)
         {
@@ -38,7 +36,32 @@ namespace SimpleOpenBank.Application.Business
 
             if (!isSuccess) throw new ArgumentException("Unable to transfer");
 
+            // enviar email 
+            if(from.UserId == to.UserId)
+            {
+                var result = await _emailTransferProducer.SendNotificacaoTransfer(CreateNotificacao(from, transferRequest));
+                if(result == false) throw new ArgumentException("Email don't send");
+            }
+            else
+            {
+                var resultFrom = await _emailTransferProducer.SendNotificacaoTransfer(CreateNotificacao(from, transferRequest));
+                var resultTo = await _emailTransferProducer.SendNotificacaoTransfer(CreateNotificacao(to, transferRequest));
+                if (resultFrom == false) throw new ArgumentException("Email don't send");
+                if (resultTo == false) throw new ArgumentException("Email don't send");
+            }
+
             return "Transfer completed successfully";
+        }
+
+        private static Notificacao CreateNotificacao(AccountBD account, TransferRequest transferRequest)
+        {
+            return new Notificacao()
+            {
+                Amount = transferRequest.Amount.ToString(),
+                FromAccountId = transferRequest.From_Account_Id.ToString(),
+                ToAccountId = transferRequest.To_Account_Id.ToString(),
+                UserId = account.UserId,
+            };
         }
     }
 }

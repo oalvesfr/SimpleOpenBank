@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "ZXSja77ik/ZViZwpa+AzpYyYEY5DdJ+ctGtawuqADfcEfATQ48FyRfgwsiMeU+mIsUsMj1G+bJdC0SSytbpHyg==",
+  "dgSpecHash": "yFJuj0HUlEvMR0YQUwoslcBBs2gSLtXR67nX4lIC10/hfnUD/NaNaH7tSNhfL90T9GzJAYQAy9aVikncrhHSVA==",
   "success": true,
-  "projectFilePath": "c:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
+  "projectFilePath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }

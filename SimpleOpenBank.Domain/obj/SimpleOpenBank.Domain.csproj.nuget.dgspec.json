@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "c:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj": {}
+    "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj": {}
   },
   "projects": {
-    "c:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj": {
+    "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "c:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
+        "projectUniqueName": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
         "projectName": "SimpleOpenBank.Domain",
-        "projectPath": "c:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
+        "projectPath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\SimpleOpenBank.Domain.csproj",
         "packagesPath": "C:\\Users\\oalvesfr\\.nuget\\packages\\",
-        "outputPath": "c:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\obj\\",
+        "outputPath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Domain\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\oalvesfr\\AppData\\Roaming\\NuGet\\NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "PD1vuxcPGimCrhguFmVIseZPsP2iN6rRhrm/gjcKGcaszqNAgobrscFvnAGDvozeKuQHXxAmbfcjw7xaA2uvFw==",
+  "dgSpecHash": "dfl0/PkNoRnMTieVwjYJRNoQ3xhJNt59Tq3/r7PU8wwtSqyCOJCNMeY8+M2ltWE+KJvpW8iywc3RFy+yhLBQXg==",
   "success": true,
-  "projectFilePath": "c:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Application\\SimpleOpenBank.Application.csproj",
+  "projectFilePath": "C:\\Users\\oalvesfr\\source\\SimpleOpenBank\\SimpleOpenBank.Application\\SimpleOpenBank.Application.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\oalvesfr\\.nuget\\packages\\automapper\\12.0.0\\automapper.12.0.0.nupkg.sha512",
     "C:\\Users\\oalvesfr\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

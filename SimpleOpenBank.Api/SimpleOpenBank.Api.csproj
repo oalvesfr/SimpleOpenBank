@@ -23,6 +23,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SimpleOpenBank.Application\SimpleOpenBank.Application.csproj" />
     <ProjectReference Include="..\SimpleOpenBank.Auth\SimpleOpenBank.Auth.csproj" />
+    <ProjectReference Include="..\SimpleOpenBank.Infratructure\SimpleOpenBank.Infratructure.csproj" />
     <ProjectReference Include="..\SimpleOpenBank.Persistence\SimpleOpenBank.Persistence.csproj" />
   </ItemGroup>
 
