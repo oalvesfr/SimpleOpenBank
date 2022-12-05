@@ -44,10 +44,10 @@ namespace SimpleOpenBank.Infratructure.KafkaProducer
         }
         private static string CreateBody(Notificacao notificacao)
         {
-            return "Caro(a) Cliente," + notificacao.FullName + "\r\n" +
+            return "Caro(a) Cliente," + notificacao.FullName + "<br>" +
                 "Foi realizada uma transferencia no valor de " + notificacao.Amount + ", da conta " + notificacao.FromAccountId +
-                " para a conta " + notificacao.ToAccountId + ".\r\n" +
-                "  \r\nCom os melhores cumprimentos\r\n";
+                " para a conta " + notificacao.ToAccountId + ".<br>" +
+                "  \r\nCom os melhores cumprimentos<br>";
         }
     }
 }
